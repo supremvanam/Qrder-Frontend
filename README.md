@@ -5,7 +5,7 @@ This is the repository for the front-end part of COMP 231 Software Development P
 Welcome to Qrder, the QR Code Menu
 Here is for Qrder API
 
-Professors:
+Professors:<br>
 Dr. Bob Pajkowski<br>
 Dr. Hao Lac<br>
 
