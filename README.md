@@ -1,4 +1,4 @@
-This is the repository for the front-end part of the COMP 231 Software Development Project.
+This is the repository for the front-end part of COMP 231 Software Development Project.
 
 =-=-=-=-= WIProgress =-=-=-=-=
 
