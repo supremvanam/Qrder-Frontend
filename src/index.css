@@ -15,7 +15,7 @@ h2 {
 
 .btn {
   font: inherit;
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.7rem;
   cursor: pointer;
   border-radius: 4px;
   background-color: #800040;
@@ -43,7 +43,8 @@ h2 {
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
-  width: 20rem;
+  /* width: 20rem; */
+  margin-bottom: 1em;
 }
 
 .actions {
