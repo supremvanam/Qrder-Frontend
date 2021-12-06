@@ -2,7 +2,7 @@ This is the repository for the front-end part of COMP 231 Software Development P
 
 =-=-=-=-= WIProgress =-=-=-=-=
 
-Welcome to Qrder, the QR Code Menu
+Welcome to `Qrder`, the QR Code Menu
 Here is for Qrder API
 
 Professors:<br>
