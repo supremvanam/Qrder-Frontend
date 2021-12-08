@@ -9,7 +9,7 @@ function App() {
         dishDescription="BBQ Chicken Pizza with Fresh Mozzarella and Pickled Jalapeños Recipe"
       />
       <Todo
-        dishTitle="Double Cheese Burger"
+        dishTitle="Double Cheese Burger - Test"
         dishDescription="Juicy, big, loaded with toppings of your choice"
       />
       <Todo
