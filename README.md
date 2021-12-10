@@ -20,6 +20,6 @@ Rajan Halai<br>
 Rushitaben Shaileshbhai Patel<br>
 Suprem Vanam<br>
 
-## You can find our design file here
+### You can find our User Interface design document by clicking the link below
 
-<a href="https://www.figma.com/file/LZKTbqS2XW1O2NfsMPXc9s/Qrder---Design?node-id=0%3A1">Qrder - Figma Design</a>
+<a href="https://www.figma.com/file/LZKTbqS2XW1O2NfsMPXc9s/Qrder---Design?node-id=0%3A1" target="_blank">Qrder - Figma Design</a>
