@@ -47,6 +47,32 @@ h2 {
   margin-bottom: 1em;
 }
 
+.text-center{
+  text-align: center;
+}
+
+.item-center
+{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.product-item{
+  display: flex;
+  
+}
+.product-item .item-name{
+  padding-left: 40px;
+  width: 80%;
+  float: left;
+}
+
+.product-item .item-price{
+  padding-right: 40px;
+  float: right;
+}
+
 .actions {
   text-align: right;
 }

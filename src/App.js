@@ -1,23 +1,21 @@
-import Todo from "./components/MenuItem";
+import React from "react";
+import Product from "./components/Product";
+import CartItem from "./components/CartItem";
+import OrderItem from "./components/OrderItem";
+import PrintData from "./components/PrintData";
+import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <h1>Commune Restaurant</h1>
-      <Todo
-        dishTitle="Chicken Pizza"
-        dishDescription="BBQ Chicken Pizza with Fresh Mozzarella and Pickled Jalapeños Recipe"
-      />
-      <Todo
-        dishTitle="Double Cheese Burger - Test"
-        dishDescription="Juicy, big, loaded with toppings of your choice"
-      />
-      <Todo
-        dishTitle="Quesadilla"
-        dishDescription="Flour tortillas filled with Chihuahua cheese and pico de gallo"
-      />
-    </div>
+    <Router>
+    <Routes>
+        <Route path='/' element={ <Product />} />
+        <Route path='/cart' element={ <CartItem />} />
+        <Route path='/pay' element={ <OrderItem />} />
+        <Route path='/print' element={ <PrintData />} />
+    </Routes>
+    </Router>
+
   );
 }
-
 export default App;
