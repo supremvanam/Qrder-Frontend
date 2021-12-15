@@ -13,6 +13,10 @@ h2 {
   color: #333333;
 }
 
+a{
+  text-decoration: none;
+}
+
 .btn {
   font: inherit;
   padding: 0.7rem 1.7rem;
@@ -62,14 +66,19 @@ h2 {
   display: flex;
   
 }
+.product-item .item-id{
+  padding-left: 40px;
+  width: 5%;
+}
 .product-item .item-name{
   padding-left: 40px;
-  width: 80%;
+  width: 75%;
   float: left;
 }
 
 .product-item .item-price{
   padding-right: 40px;
+  width: 20%;
   float: right;
 }
 
@@ -98,4 +107,9 @@ h2 {
   height: 100vh;
   top: 0;
   left: 0;
+}
+
+@media print { 
+    .no-printme  { display: none;}
+    .printme  { display: block;}
 }

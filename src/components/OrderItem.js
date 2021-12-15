@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import CartSingleItem from "./CartSingleItem";
+import { getAllOrder } from '../Controller/api';
 import { NavLink } from 'react-router-dom';
 
 function OrderItem() {
+  const [order, setOrder] = useState([]);
+  useEffect(() => {
+    getOrders();
+  }, [])
+
+  const getOrders = async () =>{
+      const response = await getAllOrder();
+      //console.log(response.data);
+      setOrder(response.data);
+  }
   return (
     <div className="card">
-        <h2 style={{marginBottom:"40px",textAlign:"center"}}>ORDER SUCCESSFUL</h2>
-      <CartSingleItem itemTitle="Chicken Pizza" itemPrice="55 $" />
-      <CartSingleItem itemTitle="Double Cheese Burger" itemPrice="05 $" />
-      <CartSingleItem itemTitle="Quesadilla" itemPrice="70 $" />
-      <CartSingleItem itemTitle="Chicken Pizza" itemPrice="80 $" />
-      <div className="product-item" style={{marginTop:"50px"}}>
-          <h4 className="item-name">Total</h4>
-          <h4 className="item-price">400 $</h4>
+        <div className='printme' style={{padding:"40px", border:"1px solid black"}}>
+            <h2 style={{marginBottom:"10px",textAlign:"center"}}>ORDER SUCCESSFUL</h2>
+            <h4 style={{marginBottom:"10px",textAlign:"center"}}>ORDER OVERVIEW</h4>
+            {
+                order.map((data) => (
+                  <CartSingleItem key={data.id} itemId={data.id} itemTitle={data.name} itemPrice={data.price} />
+                ))
+            }
+            
+            <div className="product-item" style={{marginTop:"20px"}}>
+                <span className="item-id"></span>
+                <h4 className="item-name" style={{paddingLeft:"40px"}}>Total</h4>
+                <h4 className="item-price" >$ { order.reduce((a,b) =>  a = a + b.price , 0 ) }</h4>
+            </div>
        </div>
-      <div className="item-center" style={{marginTop:"40px"}}>
-          <NavLink to="/print" className="btn text-center"> Print Now </NavLink>
-        </div>
+       <div className="item-center no-printme" style={{marginTop:"40px",marginBottom:"40px"}}>
+          <NavLink to="/" className="btn text-center"> Product Page </NavLink>
+          <p onClick={() => window.print()} className="btn text-center"> Print Now </p>
+       </div>
     </div>
     
   );
