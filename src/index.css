@@ -5,7 +5,7 @@
 body {
   font-family: sans-serif;
   margin: 3rem;
-  background-color: #dfdfdf;
+  background-color: #fff8f2;
 }
 
 h1,
@@ -13,33 +13,36 @@ h2 {
   color: #333333;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 .btn {
   font: inherit;
   padding: 0.7rem 1.7rem;
+  min-height: 40px;
   cursor: pointer;
-  border-radius: 4px;
-  background-color: #800040;
+  border-radius: 10px;
+  background-color: #ea1227;
   color: white;
-  border: 1px solid #800040;
   margin: 0 1rem;
 }
 
 .btn:hover {
-  background-color: #9c1458;
-  border-color: #9c1458;
+  background-color: #d10115;
 }
 
 .btn--alt {
   background-color: transparent;
-  color: #800040;
+  color: #ea1227;
 }
 
 .btn--alt:hover {
   background-color: #f8dae9;
+}
+
+#btn-style {
+  min-height: 30px;
 }
 
 .card {
@@ -51,32 +54,30 @@ a{
   margin-bottom: 1em;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.item-center
-{
+.item-center {
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
-.product-item{
+.product-item {
   display: flex;
-  
 }
-.product-item .item-id{
+.product-item .item-id {
   padding-left: 40px;
   width: 5%;
 }
-.product-item .item-name{
+.product-item .item-name {
   padding-left: 40px;
   width: 75%;
   float: left;
 }
 
-.product-item .item-price{
+.product-item .item-price {
   padding-right: 40px;
   width: 20%;
   float: right;
@@ -109,7 +110,63 @@ a{
   left: 0;
 }
 
-@media print { 
-    .no-printme  { display: none;}
-    .printme  { display: block;}
+.restaurant-btn {
+  float: right;
+  font-size: 1.2em;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  display: block;
+}
+
+.logo {
+  min-width: 70px;
+  width: 150px;
+  margin-top: 3em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.div-around-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tagline-heading {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 4em;
+  text-align: center;
+}
+
+.tagline-paragraph {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.tagline-props {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.footer {
+  position: relative;
+  font-size: 1em;
+  margin-top: 5em;
+  bottom: 0;
+  text-align: center;
+}
+
+@media print {
+  .no-printme {
+    display: none;
+  }
+  .printme {
+    display: block;
+  }
 }
