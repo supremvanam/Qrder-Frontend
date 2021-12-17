@@ -162,6 +162,10 @@ a {
   text-align: center;
 }
 
+.extra-margin {
+  margin: 15;
+}
+
 @media print {
   .no-printme {
     display: none;
