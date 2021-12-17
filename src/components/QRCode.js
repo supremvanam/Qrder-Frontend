@@ -23,7 +23,7 @@ export class QRCode extends Component {
           <Html5QrcodePlugin
             fps={10}
             qrbox={250}
-            disableFlip={true}
+            disableFlip={false}
             qrCodeSuccessCallback={this.onNewScanResult}
           />
         </section>
