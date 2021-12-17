@@ -38,7 +38,7 @@ class Html5QrcodePlugin extends React.Component {
     var config = createConfig(this.props);
     var verbose = this.props.verbose === true;
 
-    // Suceess callback is required.
+    // Success callback is required.
     if (!this.props.qrCodeSuccessCallback) {
       throw "qrCodeSuccessCallback is required callback.";
     }

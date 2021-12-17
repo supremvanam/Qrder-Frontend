@@ -17,7 +17,7 @@ export class QRCode extends Component {
   render() {
     return (
       <div className="App">
-        <img className="logo" src={logoPNG} />
+        <img alt="Qrder Logo" className="logo" src={logoPNG} />
         &nbsp;&nbsp;
         <section className="App-section">
           <Html5QrcodePlugin

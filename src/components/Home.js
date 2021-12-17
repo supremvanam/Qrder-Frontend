@@ -1,15 +1,18 @@
 import React from "react";
 import logoPNG from "../images/qrder-logo.png";
+import TableSelection from "./TableSelection";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
       <div>
-        <a className="restaurant-btn">Restaurant Staff</a>
+        <NavLink to="/selecttable" className="restaurant-btn">
+          Restaurant Staff
+        </NavLink>
       </div>
       &nbsp;
-      <img className="logo" src={logoPNG} />
+      <img alt="Qrder Logo" className="logo" src={logoPNG} />
       <h1 className="tagline-heading">Qrder</h1>
       <p className="tagline-paragraph">
         Qrder, pronounced as “Qorder” is a web application that provides digital
