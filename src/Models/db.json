@@ -2,15 +2,9 @@
   "order": [
     {
       "qty": 1,
-      "name": "Testmenu3",
-      "price": 7.99,
+      "name": "Maitake Mushroom Steak",
+      "price": 29,
       "id": 1
-    },
-    {
-      "qty": 1,
-      "name": "Testmenu1",
-      "price": 4.99,
-      "id": 2
     }
   ]
 }
