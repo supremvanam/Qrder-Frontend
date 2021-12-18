@@ -5,6 +5,7 @@ import Product from "./components/Product";
 import CartItem from "./components/CartItem";
 import OrderItem from "./components/OrderItem";
 import TableSelection from "./components/TableSelection";
+import WaitStaff from "./components/WaitStaff";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cart" element={<CartItem />} />
         <Route path="/pay" element={<OrderItem />} />
 
+        <Route path="/staff" element={<WaitStaff />} />
         <Route path="/selecttable" element={<TableSelection />} />
 
         {/* <Route path='/print' element={ <PrintData />} /> */}
