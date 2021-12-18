@@ -1,20 +1,15 @@
 import axios from "axios";
 
-const url = "http://127.0.0.1:3003/order";
 
-export const getAllOrder = async (id) => {
-  id = id || "";
-  return await axios.get(`${url}/${id}`);
-};
+const url = "http://comp231qrderapi-dev.us-east-2.elasticbeanstalk.com/api/restaurants";
 
-// export const addUser = async (user) => {
-//     return await axios.post(url,user);
-// }
+const orderUrl = "http://127.0.0.1:3003/order";
 
-// export const editUser = async (id, user) => {
-//     return await axios.put(`${url}/${id}`,user);
-// }
+export const getAllOrder = async () => {
+    return await axios.get(`${orderUrl}`);
+}
 
-// export const deleteUser = async (id) => {
-//     return await axios.delete(`${url}/${id}`);
-// }
+
+export const getAllMenu = async () => {
+    return await axios.get(`${url}`);
+}

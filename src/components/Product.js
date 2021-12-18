@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import Todo from "./MenuItem";
+import { getAllMenu } from '../Controller/api';
 import { NavLink } from 'react-router-dom';
 
 function Product() {
+
+  const [menu, setMenu] = useState([]);
+  useEffect(() => {
+    getMenus();
+  }, [])
+
+  const getMenus = async () =>{
+      const response = await getAllMenu();
+      //console.log(response.data[0].menus);
+      setMenu(response.data[0].menus);
+  }
+
   return (
     <div>
         <h1>Commune Restaurant</h1>
-        <Todo
-        dishTitle="Chicken Pizza"
-        dishDescription="BBQ Chicken Pizza with Fresh Mozzarella and Pickled Jalapeños Recipe"
-        />
-        <Todo
-        dishTitle="Double Cheese Burger - Test"
-        dishDescription="Juicy, big, loaded with toppings of your choice"
-        />
-        <Todo
-        dishTitle="Quesadilla"
-        dishDescription="Flour tortillas filled with Chihuahua cheese and pico de gallo"
-        />
+
+        {
+            menu.map((data) => (
+              <Todo key={data.name} dishTitle={data.name} dishDescription={data.price} />
+            ))
+        }
+
         <div className="item-center">
           <NavLink to="/cart" className="btn text-center"> View Cart </NavLink>
         </div>
