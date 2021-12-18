@@ -6,6 +6,7 @@ import CartItem from "./components/CartItem";
 import OrderItem from "./components/OrderItem";
 import TableSelection from "./components/TableSelection";
 import WaitStaff from "./components/WaitStaff";
+import QRScanner from "./components/QRScanner";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/scan" element={<QRCode />} />
+        <Route path="/scan" element={<QRScanner />} />
 
         <Route path="/product" element={<Product />} />
         <Route path="/cart" element={<CartItem />} />

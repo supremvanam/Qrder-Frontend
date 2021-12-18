@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Html5QrcodePlugin from "./Html5QrcodePlugin.jsx";
 import logoPNG from "../images/qrder-logo.png";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export class QRCode extends Component {
   constructor(props) {
@@ -41,6 +42,9 @@ export class QRCode extends Component {
   // Redirect to the menu page - WIP
   onNewScanResult(decodedText, decodedResult) {
     console.log("App [result]", decodedResult.decodedText);
+    console.log("Decoded Text is", decodedText);
+
+    // const navigate = useNavigate();
 
     // let decodedResults = this.state.decodedResults;
     // decodedResults.push(decodedResult);
