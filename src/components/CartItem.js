@@ -17,6 +17,9 @@ function CartItem() {
   const restaurant_id = useSelector(
     (state) => state.ordersReducer.restaurantId
   );
+  const orderState = useSelector((state) => state.ordersReducer.orderId);
+
+  console.log("Order State: " + orderState);
 
   console.log("asfe ", restaurant_id);
   console.log("12321312 ", table_id);
@@ -32,6 +35,7 @@ function CartItem() {
     let response = payOrder(data);
     console.log(response);
     navigate(`/success`);
+    console.log("data = " + data);
   };
 
   return (
@@ -59,7 +63,7 @@ function CartItem() {
       <div className="item-center" style={{ marginTop: "40px" }}>
         <button className="btn text-center" onClick={handlerPay}>
           {" "}
-          Order{" "}
+          Place an order{" "}
         </button>
       </div>
     </div>
