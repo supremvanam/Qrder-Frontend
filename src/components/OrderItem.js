@@ -10,9 +10,23 @@ function OrderItem() {
   }, []);
 
   const getOrders = async () => {
+    let url = window.location.pathname;
+    let id = window.location.hash;
+    let path = url.split("/").reverse();
+    let table_id = path[0] + id;
+
+    //console.log("table id ", tableId);
+
     const response = await getAllOrder();
     //console.log(response.data);
     setOrder(response.data);
+
+    let result = response.data.find(({ tableId }) => tableId === `${table_id}`);
+    console.log("dsf", result);
+    console.log("dsf", result.occupiedOrder.orderedItems);
+    if (result.occupiedOrder != null) {
+      setOrder(result.occupiedOrder.orderedItems);
+    }
   };
   return (
     <div className="card">

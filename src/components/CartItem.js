@@ -1,47 +1,63 @@
 import React, { useEffect, useState } from "react";
-import CartSingleItem from "./CartSingleItem";
-import { getAllOrder } from "../Controller/api";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import CartSingleItem from "./CartSingleItem";
+import { payOrder } from "../Controller/api";
+import logoPNG from "../images/qrder-logo.png";
 
 function CartItem() {
-  const [order, setOrder] = useState([]);
-  useEffect(() => {
-    getOrders();
-  }, []);
+  //const counter = useSelector(state => state);
+  const orders = useSelector((state) => state.ordersReducer.orders);
+  const total = useSelector((state) => state.ordersReducer.total);
+  const table_id = useSelector((state) => state.ordersReducer.tableId);
+  const restaurant_id = useSelector(
+    (state) => state.ordersReducer.restaurantId
+  );
 
-  const getOrders = async () => {
-    const response = await getAllOrder();
-    //console.log(response.data);
-    setOrder(response.data);
+  console.log("asfe ", restaurant_id);
+  console.log("12321312 ", table_id);
+
+  console.log("orders  ", orders);
+  const dispatch = useDispatch();
+
+  const handlerPay = () => {
+    let data = {};
+    data["tableGuid"] = table_id;
+    data["restaurantId"] = restaurant_id;
+    data["orderedItems"] = orders;
+    let response = payOrder(data);
+    console.log(response);
+    alert("Order Successful!");
+    // navigate(`/success`);
   };
 
   return (
     <div className="card">
       <h2 style={{ marginBottom: "40px", textAlign: "center" }}>CART</h2>
 
-      {order.map((data) => (
-        <CartSingleItem
-          key={data.id}
-          itemId={data.id}
-          itemTitle={data.name}
-          itemPrice={data.price}
-        />
-      ))}
+      {orders &&
+        orders.map((data) => (
+          <CartSingleItem
+            key={data.id}
+            itemTitle={data.title}
+            itemPrice={data.price}
+          />
+        ))}
 
       <div className="product-item" style={{ marginTop: "50px" }}>
         <span className="item-id"></span>
         <h4 className="item-name" style={{ paddingLeft: "40px" }}>
           Total
         </h4>
-        <h4 className="item-price">
-          $ {order.reduce((a, b) => (a = a + b.price), 0)}
-        </h4>
+        <h4 className="item-price">$ {total}</h4>
       </div>
       <div className="item-center" style={{ marginTop: "40px" }}>
-        <NavLink to="/pay" className="btn text-center">
+        <button className="btn text-center" onClick={handlerPay}>
           {" "}
-          Pay Now{" "}
-        </NavLink>
+          Order{" "}
+        </button>
       </div>
     </div>
   );

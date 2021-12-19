@@ -1,15 +1,25 @@
 import axios from "axios";
 
+const url =
+  "http://comp231qrderapi-dev.us-east-2.elasticbeanstalk.com/api/restaurants";
 
-const url = "http://comp231qrderapi-dev.us-east-2.elasticbeanstalk.com/api/restaurants";
-
-const orderUrl = "http://127.0.0.1:3003/order";
+const orderUrl =
+  "http://comp231qrderapi-dev.us-east-2.elasticbeanstalk.com/api/restaurant/50a96701adb6482088eb97342ea4bd8b/tables";
+const payOrderUrl =
+  "http://comp231qrderapi-dev.us-east-2.elasticbeanstalk.com/api/restaurant/50a96701adb6482088eb97342ea4bd8b/order";
 
 export const getAllOrder = async () => {
-    return await axios.get(`${orderUrl}`);
-}
+  return await axios.get(`${orderUrl}`);
+};
 
+// export const getAllTables = async () => {
+//     return await axios.get(`${tablesUrl}`);
+// }
 
 export const getAllMenu = async () => {
-    return await axios.get(`${url}`);
-}
+  return await axios.get(`${url}`);
+};
+
+export const payOrder = async (data) => {
+  return await axios.post(`${payOrderUrl}`, data);
+};

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import logoPNG from "../images/qrder-logo.png";
-import StaffCell from "./StaffCell";
+import TableCell from "./TableCell";
 import { getAllOrder } from "../Controller/api";
 
-const WaitStaff = ({ restaurantName }) => {
+const Tables = ({ restaurantName }) => {
   const [tables, setTables] = useState([]);
 
   useEffect(() => {
@@ -24,9 +24,9 @@ const WaitStaff = ({ restaurantName }) => {
       <h1>{restaurantName}</h1>
 
       {tables.map((table) => {
-        if (table.occupiedOrder !== null) {
+        if (table.occupiedOrder == null) {
           return (
-            <StaffCell
+            <TableCell
               key={table.tableId}
               tableNumber={table.tableName}
               tableId={table.tableId}
@@ -34,21 +34,12 @@ const WaitStaff = ({ restaurantName }) => {
           );
         }
       })}
-      <div className="item-center">
-        <NavLink
-          to="/tables/50a96701adb6482088eb97342ea4bd8b"
-          className="btn text-center"
-        >
-          {" "}
-          Start a new order{" "}
-        </NavLink>
-      </div>
     </div>
   );
 };
 
-WaitStaff.defaultProps = {
+Tables.defaultProps = {
   restaurantName: "Richmond Station",
 };
 
-export default WaitStaff;
+export default Tables;

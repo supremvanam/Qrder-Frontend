@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import Backdrop from "./Backdrop";
 import Modal from "./Modal";
-import { addorder } from '../Controller/api';
-import axios from 'axios';
+// import { addorder } from '../Controller/api';
+// //import axios from 'axios';
+
+import { useSelector, useDispatch } from "react-redux";
+import { addCart } from "../redux/actions";
 
 function Todo(props) {
+  const orders = useSelector((state) => state.orders);
+  const dispatch = useDispatch();
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function deleteHandler() {
@@ -15,26 +22,14 @@ function Todo(props) {
     setModalIsOpen(false);
   }
 
-
-  async function addToCart(data){
-    try{
-
-      const response= await axios({
-        method:'POST',
-        url:'http://127.0.0.1:3003/order',
-        data:{
-          qty:data.qty,
-          name:data.dishTitle,
-          price:data.dishDescription
-        }
-      });
-      setModalIsOpen(false);
-    }catch(error){
-      console.log(error);
-
-    }
-   // console.log(response.data);
-  }
+  const handleAddCart = () => {
+    dispatch({
+      type: "ADD_CART",
+      title: props.dishTitle,
+      price: props.dishDescription,
+    });
+    closeModalHandler();
+  };
 
   return (
     <div className="card">
@@ -46,13 +41,15 @@ function Todo(props) {
         </button>
       </div>
       {modalIsOpen && (
-        <Modal onCancel={closeModalHandler} onConfirm={()=>{
-          addToCart({qty:1,...props});
-        }} />
+        <Modal onCancel={closeModalHandler} onConfirm={() => handleAddCart()} />
       )}
       {modalIsOpen && <Backdrop onClick={closeModalHandler} />}
     </div>
   );
 }
 
+// export default connect(
+//   null,
+//   { addCart }
+// )(Todo);
 export default Todo;

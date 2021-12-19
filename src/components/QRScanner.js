@@ -3,16 +3,35 @@ import Html5QrcodePlugin from "./Html5QrcodePlugin.jsx";
 import logoPNG from "../images/qrder-logo.png";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const QRScanner = () => {
   const navigate = useNavigate();
+  const [decordedText, setText] = useState("");
 
   useEffect(() => {
-    if (onNewScanResult.decodedText != "") {
-      navigate("/product");
-    }
+    // if (decordedText === "123qweasd") {
+    // Here we have to go to a specific restaurant based on its ID
+    // navigate("/product");
+    //navigate(`/product/${decordedText}`);
+    // }
   }, []);
+
+  const onNewScanResult = (decordedText, decodedResult) => {
+    console.log("App [result]", decodedResult.decordedText);
+    console.log("Decoded Text is", decordedText);
+    navigate(`/tables/${decordedText}`);
+
+    //setText(decordedText);
+
+    // let decodedResults = this.state.decodedResults;
+    // decodedResults.push(decodedResult);
+    // this.setState((state, props) => {
+    //   state.decodedResults.push(decodedResult);
+    //   // navigate("/home");
+    //   return state;
+    // });
+  };
 
   return (
     <div className="App">
@@ -35,19 +54,6 @@ const QRScanner = () => {
       </div>
     </div>
   );
-};
-
-const onNewScanResult = (decodedText, decodedResult) => {
-  console.log("App [result]", decodedResult.decodedText);
-  console.log("Decoded Text is", decodedText);
-
-  // let decodedResults = this.state.decodedResults;
-  // decodedResults.push(decodedResult);
-  this.setState((state, props) => {
-    state.decodedResults.push(decodedResult);
-    // navigate("/home");
-    return state;
-  });
 };
 
 export default QRScanner;
