@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartSingleItem from "./CartSingleItem";
 import { getAllOrder } from "../Controller/api";
 import { NavLink } from "react-router-dom";
+import logoPNG from "../images/qrder-logo.png";
 
 function OrderItem() {
   const [order, setOrder] = useState([]);
@@ -30,12 +31,14 @@ function OrderItem() {
   };
   return (
     <div className="card">
+      <img alt="Qrder Logo" className="logo" src={logoPNG} />
+
       <div
         className="printme"
         style={{ padding: "40px", border: "1px solid black" }}
       >
         <h2 style={{ marginBottom: "10px", textAlign: "center" }}>
-          ORDER SUCCESSFUL
+          PAYMENT SUCCESSFUL
         </h2>
         <h4 style={{ marginBottom: "10px", textAlign: "center" }}>
           ORDER OVERVIEW
@@ -69,7 +72,7 @@ function OrderItem() {
         </NavLink>
         <p onClick={() => window.print()} className="btn text-center">
           {" "}
-          Print Now{" "}
+          Print Receipt{" "}
         </p>
       </div>
     </div>

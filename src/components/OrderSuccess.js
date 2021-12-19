@@ -7,7 +7,7 @@ import CartSingleItem from "./CartSingleItem";
 import { payOrder } from "../Controller/api";
 import logoPNG from "../images/qrder-logo.png";
 
-function CartItem() {
+function OrderSuccess() {
   const navigate = useNavigate();
 
   //const counter = useSelector(state => state);
@@ -38,7 +38,12 @@ function CartItem() {
     <div className="card">
       <img alt="Qrder Logo" className="logo" src={logoPNG} />
 
-      <h2 style={{ marginBottom: "40px", textAlign: "center" }}>CART</h2>
+      <h2 style={{ marginBottom: "40px", textAlign: "center" }}>
+        ORDER PLACED SUCCESSFULLY
+      </h2>
+      <h3 style={{ marginBottom: "40px", textAlign: "center" }}>
+        ENJOY YOUR MEAL!
+      </h3>
 
       {orders &&
         orders.map((data) => (
@@ -57,13 +62,17 @@ function CartItem() {
         <h4 className="item-price">$ {total}</h4>
       </div>
       <div className="item-center" style={{ marginTop: "40px" }}>
-        <button className="btn text-center" onClick={handlerPay}>
+        <NavLink to="/" className="btn text-center">
           {" "}
-          Order{" "}
-        </button>
+          Home{" "}
+        </NavLink>
+        <p onClick={() => window.print()} className="btn text-center">
+          {" "}
+          Print Receipt{" "}
+        </p>
       </div>
     </div>
   );
 }
 
-export default CartItem;
+export default OrderSuccess;

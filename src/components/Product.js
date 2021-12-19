@@ -4,6 +4,7 @@ import { getAllMenu } from "../Controller/api";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart } from "../redux/reducer";
+import logoPNG from "../images/qrder-logo.png";
 
 function Product() {
   const orders = useSelector((state) => state.orders);
@@ -38,6 +39,8 @@ function Product() {
 
   return (
     <div>
+      <img alt="Qrder Logo" className="logo" src={logoPNG} />
+
       <h1>{restaurantName}</h1>
 
       {menu.map((data) => (
