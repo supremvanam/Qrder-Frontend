@@ -66,6 +66,11 @@ function OrderItem() {
         className="item-center no-printme"
         style={{ marginTop: "40px", marginBottom: "40px" }}
       >
+        {/* When the user clicks on this button, the current order must be deleted and the table will be cleared */}
+        <p onClick={() => window.print()} className="btn text-center">
+          {" "}
+          Clear Table{" "}
+        </p>
         <NavLink to="/" className="btn text-center">
           {" "}
           Home{" "}
